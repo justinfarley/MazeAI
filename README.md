@@ -6,8 +6,8 @@ robot needs to solve how to get to the end of the maze
 ## Usage
 
 ### Use the [environment] to test the bot.
-It should be noted that this bot is not meant to be 100% accurate (i am still working on that)
-it has randomized movements and is not a deep learning AI meaning it does not learn from its mistakes. (again, working on it)
+>It should be noted that this bot is not meant to be 100% accurate (i am still working on that)
+>it has randomized movements and is not a deep learning AI meaning it does not learn from its mistakes. (again, working on it)
 
 ## Contributing
 
