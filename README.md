@@ -1,35 +1,15 @@
 # MazeAI
 robot needs to solve how to get to the end of the maze
-## Installation
+## Experimentation
 
-Use the package manager [pip](https://pip.pypa.io/en/stable/) to install foobar.
-
-```bash
-pip install foobar
-```
 
 ## Usage
 
-```python
-import foobar
-
-# returns 'words'
-foobar.pluralize('word')
-
-# returns 'geese'
-foobar.pluralize('goose')
-
-# returns 'phenomenon'
-foobar.singularize('phenomena')
-```
+### Use the [environment] to test the bot.
+    It should be noted that this bot is not meant to be 100% accurate (i am still working on that)
+    it has randomized movements and is not a deep learning AI meaning it does not learn from its mistakes. (again, working on it)
 
 ## Contributing
 
-Pull requests are welcome. For major changes, please open an issue first
-to discuss what you would like to change.
-
-Please make sure to update tests as appropriate.
-
-## License
-
-[MIT](https://choosealicense.com/licenses/mit/)
+### Justin Farley
+Karan Khademi (a little bit)
