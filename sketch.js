@@ -1,7 +1,7 @@
 
 let screenWidth = 400;
 let screenHeight = 400;
-let offset = 50;
+let offset = 10;
 let step = 5;
 let path = [];
 let solution = [];
@@ -18,6 +18,10 @@ let button4x4;
 let button8x8;
 let button16x16;
 let button40x40;
+let smarterAIButton1;
+let smarterAIButton2;
+let smarter = "no";
+let playSmarter = false;
 class Tile{
   constructor({position, open}){
     this.position = position;
@@ -252,9 +256,13 @@ class Runner
           if(this.GetLeftAdjacent().open){
             this.position.x -= offset;
             moves++;
+            if(playSmarter){
+              this.lastPos = 0;
+            }
           }
+          if(!playSmarter)
+            this.lastPos = 0;
         }
-        this.lastPos = 0;
         break;
       case 1:
         //move right
@@ -262,9 +270,14 @@ class Runner
           if(this.GetRightAdjacent().open){
           this.position.x += offset;
           moves++;
+          if(playSmarter){
+           this.lastPos = 1;
+          }
+          }
+          if(!playSmarter){
+            this.lastPos = 1;
           }
         }
-        this.lastPos = 1;
         break;
       case 2:
         //move down
@@ -272,9 +285,14 @@ class Runner
           if(this.GetBottomAdjacent().open){
           this.position.y += offset;
           moves++;
+          if(playSmarter){
+            this.lastPos = 2;
+          }
           }
         }
-        this.lastPos = 2;
+        if(!playSmarter){
+          this.lastPos = 2;
+        }
         break;
       case 3:
         //move up
@@ -282,9 +300,14 @@ class Runner
           if(this.GetTopAdjacent().open){
           this.position.y -= offset;
           moves++;
+          if(playSmarter){
+            this.lastPos = 3;
+          }
           }
         }
-        this.lastPos = 3;
+        if(!playSmarter){
+          this.lastPos = 3;
+        }
         break;
     }
 }
@@ -362,7 +385,22 @@ let boardInit = new BoardInitialization(
     button8x8.size(50,50);
     button16x16.size(50,50);
     button40x40.size(50,50);
-  
+    smarterAIButton1 = createButton('no');
+    smarterAIButton2 = createButton('yes');
+    smarterAIButton1.position(850,250);
+    smarterAIButton2.position(950, 250);
+    smarterAIButton1.size(50,50);
+    smarterAIButton2.size(50,50);
+    smarterAIButton1.mousePressed(() => 
+    {
+      playSmarter = false;
+      smarter = "no";
+    });
+    smarterAIButton2.mousePressed(() => 
+    {
+      playSmarter = true;
+      smarter = "yes (may get stuck sometimes)";
+    });
     button4x4.mousePressed(() =>
     {
       offset = 100;
@@ -501,6 +539,7 @@ function draw() {
     textAlign(CENTER);
     text("Attempt new move every: " + timerFrames + (timerFrames == 1 ? " frame" : " frames"), 700,350);
     text("Select grid size:", 900,50);
+    text("Smarter AI: " + smarter, 900, 200);
     fill(255,0,0);
     textSize(100);
       if(!runner.canMove)
