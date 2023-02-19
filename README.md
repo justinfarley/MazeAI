@@ -12,4 +12,3 @@ robot needs to solve how to get to the end of the maze
 ## Contributing
 
 ### Justin Farley
-Karan Khademi (a little bit)
